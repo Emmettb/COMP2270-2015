@@ -1,0 +1,18 @@
+Maximum
+
+1.  "High level" source       "Low level" source            Assembly 
+	int a = RAM[0x80]          R1 = 0x80;                   MOV R1,0x80
+	int b = RAM[0x81]          R2 = 0x81;                   MOV R2,0x081
+	int max = a;               R3 = R1 + R0;				ADD R3,R1,R0
+	if (b > a) {               R4 = R2 - R1;				SUB R4,R2,R1
+    max = b;                   if(R4 < 0) goto 0x06			JZL R4,0x06
+	}                          R3 = R2 + R0;				ADD R3,R2,R0
+
+2. Machine code 
+	7180
+	7281
+	0310
+	1421
+	b406
+	0320
+	
